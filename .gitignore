@@ -4,6 +4,9 @@
 *.upx
 *.bin
 *.zip
+!artifacts/*.jar
+!artifacts/*.zip
+!artifacts/*.xz
 .DS_Store
 __pycache__/
 build/
