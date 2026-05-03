@@ -1,0 +1,9 @@
+*.apk
+*.img
+*.jar
+*.upx
+*.bin
+*.zip
+.DS_Store
+__pycache__/
+build/

@@ -1,0 +1,8 @@
+id=p6-ams-fix
+name=BOOX P6 AMS NullPointerException Fix
+version=v1.0-p6-20250923
+versionCode=1
+author=Codex + dynamicfire reference
+magisk=26000
+description=Fix Magisk app splash/crash on BOOX P6 OS 4.1 by patching this device's own services.jar
+
