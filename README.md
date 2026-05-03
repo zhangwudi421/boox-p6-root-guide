@@ -101,7 +101,6 @@ python edl.py r boot_b ../p6_boot_b.img --memory=ufs --vid=0x05c6 --pid=0x9008 -
 
 ```bash
 python edl.py reset --vid=0x05c6 --pid=0x9008 --loader=Loaders/lenovo_motorola/0000000000000000_bdaf51b59ba21d8a_fhprg.bin
-adb wait-for-device
 ```
 
 ## 三、用 Magisk 修补 boot
@@ -155,7 +154,6 @@ shasum -a 256 ../p6_boot_a_magisk.img ../p6_boot_a_after_write.img
 
 ```bash
 python edl.py reset --vid=0x05c6 --pid=0x9008 --loader=Loaders/lenovo_motorola/0000000000000000_bdaf51b59ba21d8a_fhprg.bin
-adb wait-for-device
 ```
 
 验证 root：
@@ -223,19 +221,6 @@ p6-ams-fix/
 python3 scripts/build_p6_ams_fix.py p6_services.jar -o p6-ams-fix-v1.0.zip
 ```
 
-本仓库不会提交 `services.jar` 或生成后的 zip，因为里面包含厂商系统二进制文件。下面校验值来自本文验证设备：
-
-```text
-p6_services.jar SHA256:
-b2f14fbbc8097456d6eaf2768b3021a3f62c85a7b5e0448b62559f37e32c1b6e
-
-p6-ams-fix/system/framework/services.jar SHA256:
-86130a00482d94a65d89841101d233a865d4f8a967906d8817fc04f207132c4f
-
-p6-ams-fix-v1.0.zip SHA256:
-fcd8c468a24687d7c772a28dac5c6bd610eaec142616b3e8acf7fe8e99a13f08
-```
-
 ### 4. 命令行安装模块
 
 因为 Magisk App 可能打不开，用命令行安装：
@@ -244,7 +229,6 @@ fcd8c468a24687d7c772a28dac5c6bd610eaec142616b3e8acf7fe8e99a13f08
 adb push p6-ams-fix-v1.0.zip /sdcard/Download/p6-ams-fix-v1.0.zip
 adb shell su -c 'magisk --install-module /sdcard/Download/p6-ams-fix-v1.0.zip'
 adb reboot
-adb wait-for-device
 ```
 
 验证模块：
