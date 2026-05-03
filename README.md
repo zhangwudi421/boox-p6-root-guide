@@ -44,6 +44,47 @@ cd boox-p6-root-guide
 
 如果你的系统版本不同，不要直接运行 `--force`，先按后文重新提取并修补当前固件自己的 boot 和 `services.jar`。
 
+## 运行环境
+
+脚本主要在 macOS 上验证。Linux 也可以使用，但需要自行处理 USB 权限。Windows 建议使用 WSL2 配合 Windows 侧 ADB/USB 转发，或者直接按手动步骤操作。
+
+电脑侧需要提前安装：
+
+- `git`
+- `adb`
+- `python`
+- `pip`
+- `xz`
+- `libusb`
+
+macOS 可以参考：
+
+```bash
+brew install android-platform-tools python xz libusb
+```
+
+Linux 需要安装发行版对应的软件包，并配置 Qualcomm 9008/ADB 的 udev 权限。常见包名包括：
+
+```bash
+sudo apt install git adb python3 python3-pip xz-utils libusb-1.0-0
+```
+
+运行前确认：
+
+```bash
+adb devices
+python --version
+pip --version
+xz --version
+```
+
+设备侧需要：
+
+- 打开 USB 调试。
+- 允许当前电脑的 ADB 授权。
+- 系统版本为 `2025-09-23_16-03_4.1-rel_0923_fc05fc93c`。
+- 当前槽位为 `_a`。
+
 ## 准备工具
 
 电脑侧需要：
